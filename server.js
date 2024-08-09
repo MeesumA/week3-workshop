@@ -3,6 +3,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Import routes
 const loginRoute = require('./routes/loginRoute');
 const accountRoute = require('./routes/accountRoute');
@@ -34,4 +37,3 @@ app.post('/login', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
